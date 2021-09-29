@@ -7,7 +7,7 @@ public class Task1 {
                 count++;
             }
         }
-        System.out.println("Количество положительных чисел = "+count);
+        System.out.println("Kolichestvo polozhitelnih chisel = "+count);
     }
 }
 
