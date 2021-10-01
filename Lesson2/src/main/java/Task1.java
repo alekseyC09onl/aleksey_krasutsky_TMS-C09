@@ -44,13 +44,12 @@ public class Task1 {
      * Метод должен вернуть 10
      */
     public static int max(int a, int b) {
-        if (a>b){
+        if (a>=b){
             return a;
-        }else if (b>a){
+        }else {
             return b;
-        } else {
-            return a;
         }
+
     }
 
     /**
