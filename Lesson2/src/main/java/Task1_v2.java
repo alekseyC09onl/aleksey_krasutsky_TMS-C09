@@ -9,7 +9,7 @@ public class Task1_v2 {
         System.out.println(max(56, 349));
         System.out.println(average(new int[]{1, 2, 3, 4, 6}));
         System.out.println(max(new int[]{-1, -2, -3, -4, -5, -100, -99}));
-        System.out.println(calculateHypotenuse(3,4));
+        System.out.println(calculateHypotenuse(3, 4));
     }
 
     /**
@@ -18,18 +18,17 @@ public class Task1_v2 {
      **/
     public static int sum(int a, int b) {
         int sum;
-        long aa=a;
-        long bb=b;
+        long aa = a;
+        long bb = b;
         if (aa + bb > MAX_VALUE) {
             sum = -1;
         } else {
-            sum=a+b;
+            sum = a + b;
         }
         return sum;
     }
 
     /**
-     *
      * Метод должен вернуть максимальное значение из двух чисел
      *
      * <p>
@@ -45,9 +44,9 @@ public class Task1_v2 {
      * Метод должен вернуть 10
      */
     public static int max(int a, int b) {
-        if (a>=b){
+        if (a >= b) {
             return a;
-        }else {
+        } else {
             return b;
         }
 
@@ -62,11 +61,11 @@ public class Task1_v2 {
      * Метод должен return 3.0
      */
     public static double average(int[] array) {
-        int sumEl=0;
+        int sumEl = 0;
         for (int i : array) {
-            sumEl=sumEl+i;
+            sumEl = sumEl + i;
         }
-        return (double)sumEl/array.length;
+        return (double) sumEl / array.length;
 
     }
 
@@ -74,10 +73,10 @@ public class Task1_v2 {
      * Метод должен вернуть максимальый элемент массива. Пример: array = {1,2,10,3} метод возвращает 10
      **/
     public static int max(int[] array) {
-        int max=MIN_VALUE;
+        int max = MIN_VALUE;
         for (int i : array) {
-            if (i>max){
-                max=i;
+            if (i > max) {
+                max = i;
             }
         }
         return max;
@@ -85,7 +84,7 @@ public class Task1_v2 {
 
     /**
      * Используя теорему Пифагора, вычислите значение гипотенузы. Квадрат гипотенузы = сумме квадратов катетов
-     *
+     * <p>
      * Example1:
      * 3
      * 4
@@ -97,7 +96,7 @@ public class Task1_v2 {
      * return 20
      */
     public static double calculateHypotenuse(int a, int b) {
-        double summaKvadratovStoron=a*a+b*b;
+        double summaKvadratovStoron = a * a + b * b;
         return Math.sqrt(summaKvadratovStoron);
     }
 }
