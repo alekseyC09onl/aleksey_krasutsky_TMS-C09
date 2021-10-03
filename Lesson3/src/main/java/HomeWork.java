@@ -15,8 +15,8 @@ public class HomeWork {
 //        foobar(6);
 //        foobar(10);
 //        foobar(15);
-        printMatrix();
-//        printPrimeNumbers();
+//        printMatrix();
+        printPrimeNumbers();
     }
 
     /**
@@ -151,28 +151,36 @@ public class HomeWork {
      * Обратите внимание, что 21% 3 == 0 и 21% 7 = 0, но выводить надо не +-, а +
      */
     public static void printMatrix() {
-//        int firstChislo=console.nextInt();
-//        int secondChislo=console.nextInt();
-//        int[][] array=new int[firstChislo][secondChislo];
-//        for (int i = 0; i < array.length; i++) {
-//            System.out.println();
-//            for (int j = 0; j < array[i].length; j++) {
-//                array[i][j]=(int)(Math.random()*100);
-//                System.out.println(array[i][j]);
-//            }
-//        }
-//
-//        for (int i = 0; i < array.length; i++) {
-//            for (int j = 0; j < array[i].length; j++) {
-//                if (array[i][j] % 3 == 0) {
-//                    array[i][j]=+;
-//                } else if (array[i][j] % 7 == 0) {
-//                    array[i][j]=(String)("-");
-//                } else {
-//                    array[i][j]=(String)("*");
-//                }
-//            }
-//        }
+        int firstChislo=console.nextInt();
+        int secondChislo=console.nextInt();
+        int[][] array=new int[firstChislo][secondChislo];
+        for (int i = 0; i < array.length; i++) {
+            System.out.println();
+            for (int j = 0; j < array[i].length; j++) {
+                array[i][j]=(int)(Math.random()*100);
+                System.out.print(array[i][j] + " ");
+            }
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            for (int j = 0; j < array[i].length; j++) {
+                if (array[i][j] % 3 == 0) {
+                    array[i][j]=200;
+                } else if (array[i][j] % 7 == 0) {
+                    array[i][j]=300;
+                } else {
+                    array[i][j]=400;
+                }
+            }
+        }
+        for (int i = 0; i < array.length; i++) {
+            System.out.println();
+            for (int j = 0; j < array[i].length; j++) {
+                System.out.print(array[i][j] + " ");
+            }
+        }
+
+
     }
 
     /**
@@ -181,6 +189,19 @@ public class HomeWork {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        // тут пишем логику
+        int count=0;
+        for (int i = 1; i < 1000; i++) {
+            for (int j = 1; j <= i; j++) {
+                if (i%j==0){
+                    count++;
+                    j=2;
+                    if (count>=3){
+                        count = 0;
+                        i++;
+                        break;
+                    }
+                }
+            }
+        }
     }
 }
