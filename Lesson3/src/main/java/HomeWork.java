@@ -3,6 +3,7 @@ import java.util.Scanner;
 
 public class HomeWork {
     static Scanner console = new Scanner(System.in);
+
     public static void main(String[] args) {
 
         //Некоторые тесты для проверки задач. Можно также написать свои тесты.
@@ -103,7 +104,7 @@ public class HomeWork {
             System.out.println("foo");
         } else if (number % 5 == 0) {
             System.out.println("bar");
-        }else {
+        } else {
             System.out.println("данное число не подходит ни к одному условию");
         }
     }
@@ -117,7 +118,7 @@ public class HomeWork {
         for (int i = 0; i < array.length; i++) {
 //            System.out.println();
             for (int j = 0; j < array[i].length; j++) {
-                array[i][j]=(int) ((Math.random()*6));
+                array[i][j] = (int) ((Math.random() * 6));
 //                System.out.print(array[i][j]+" ");
             }
         }
@@ -151,14 +152,14 @@ public class HomeWork {
      * Обратите внимание, что 21% 3 == 0 и 21% 7 = 0, но выводить надо не +-, а +
      */
     public static void printMatrix() {
-        int firstChislo=console.nextInt();
-        int secondChislo=console.nextInt();
+        int firstChislo = console.nextInt();
+        int secondChislo = console.nextInt();
         int[][] array = new int[firstChislo][secondChislo];
         String[][] strArray = new String[firstChislo][secondChislo];
         for (int i = 0; i < array.length; i++) {
 //            System.out.println();
             for (int j = 0; j < array[i].length; j++) {
-                array[i][j]=(int)(Math.random()*89)+10;
+                array[i][j] = (int) (Math.random() * 89) + 10;
 //                System.out.print(array[i][j] + " ");
             }
         }
@@ -166,11 +167,11 @@ public class HomeWork {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] % 3 == 0) {
-                    strArray[i][j]="+";
+                    strArray[i][j] = "+";
                 } else if (array[i][j] % 7 == 0) {
-                    strArray[i][j]="-";
+                    strArray[i][j] = "-";
                 } else {
-                    strArray[i][j]="*";
+                    strArray[i][j] = "*";
                 }
             }
         }
@@ -190,17 +191,14 @@ public class HomeWork {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        int count=0;
-        for (int i = 1; i < 1000; i++) {
-            for (int j = 1; j <= i; j++) {
-                if (i%j==0){
-                    count++;
-                    j=2;
-                    if (count>=3){
-                        count = 0;
-                        i++;
-                        break;
-                    }
+        int count = 0;
+        System.out.print("2 ");
+        for (int i = 3; i < 1000; i++) {
+            for (int j = 2; j < i; j++) {
+                if (i % j == 0) {
+                    break;
+                } else if (j == i - 1) {
+                    System.out.print(i + " ");
                 }
             }
         }
