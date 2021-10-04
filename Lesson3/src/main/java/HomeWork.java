@@ -16,7 +16,7 @@ public class HomeWork {
 //        foobar(10);
 //        foobar(15);
 //        printMatrix();
-        printPrimeNumbers();
+//        printPrimeNumbers();
     }
 
     /**
@@ -153,30 +153,31 @@ public class HomeWork {
     public static void printMatrix() {
         int firstChislo=console.nextInt();
         int secondChislo=console.nextInt();
-        int[][] array=new int[firstChislo][secondChislo];
+        int[][] array = new int[firstChislo][secondChislo];
+        String[][] strArray = new String[firstChislo][secondChislo];
         for (int i = 0; i < array.length; i++) {
-            System.out.println();
+//            System.out.println();
             for (int j = 0; j < array[i].length; j++) {
-                array[i][j]=(int)(Math.random()*100);
-                System.out.print(array[i][j] + " ");
+                array[i][j]=(int)(Math.random()*89)+10;
+//                System.out.print(array[i][j] + " ");
             }
         }
 
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] % 3 == 0) {
-                    array[i][j]=200;
+                    strArray[i][j]="+";
                 } else if (array[i][j] % 7 == 0) {
-                    array[i][j]=300;
+                    strArray[i][j]="-";
                 } else {
-                    array[i][j]=400;
+                    strArray[i][j]="*";
                 }
             }
         }
-        for (int i = 0; i < array.length; i++) {
+        for (int i = 0; i < strArray.length; i++) {
             System.out.println();
-            for (int j = 0; j < array[i].length; j++) {
-                System.out.print(array[i][j] + " ");
+            for (int j = 0; j < strArray[i].length; j++) {
+                System.out.print(strArray[i][j] + " ");
             }
         }
 
