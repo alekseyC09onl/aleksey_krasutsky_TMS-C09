@@ -12,7 +12,7 @@ public class HomeWork {
 //        System.out.println(operation(0));
 //        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
 //        calculateSumOfDiagonalElements();
-//        countDevs(103);
+//        countDevs(111811);
 //        foobar(6);
 //        foobar(10);
 //        foobar(15);
@@ -114,7 +114,7 @@ public class HomeWork {
      */
     public static void calculateSumOfDiagonalElements() {
         int summa = 0;
-        int[][] array = new int[5][5];
+        int[][] array = new int[3][3];
         for (int i = 0; i < array.length; i++) {
 //            System.out.println();
             for (int j = 0; j < array[i].length; j++) {
@@ -163,7 +163,6 @@ public class HomeWork {
 //                System.out.print(array[i][j] + " ");
             }
         }
-
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] % 3 == 0) {
@@ -191,7 +190,6 @@ public class HomeWork {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        int count = 0;
         System.out.print("2 ");
         for (int i = 3; i < 1000; i++) {
             for (int j = 2; j < i; j++) {
