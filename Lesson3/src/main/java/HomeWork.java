@@ -17,7 +17,7 @@ public class HomeWork {
 //        foobar(10);
 //        foobar(15);
 //        printMatrix();
-//        printPrimeNumbers();
+        printPrimeNumbers();
     }
 
     /**
@@ -190,12 +190,22 @@ public class HomeWork {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        System.out.print("2 ");
-        for (int i = 3; i < 1000; i++) {
+//        System.out.print("2 ");
+//        for (int i = 3; i < 1000; i++) {
+//            for (int j = 2; j < i; j++) {
+//                if (i % j == 0) {
+//                    break;
+//                } else if (j == i - 1) {
+//                    System.out.print(i + " ");
+//                }
+//            }
+//        }
+        for (int i = 2; i < 1000; i++) {
             for (int j = 2; j < i; j++) {
                 if (i % j == 0) {
                     break;
-                } else if (j == i - 1) {
+                }
+                if (i == j + 1) {
                     System.out.print(i + " ");
                 }
             }
