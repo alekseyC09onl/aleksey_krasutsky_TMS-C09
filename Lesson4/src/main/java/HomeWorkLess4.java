@@ -6,14 +6,14 @@ public class HomeWorkLess4 {
 
     public static void main(String[] args) {
 //        omeba();
-//        System.out.println("Результат произведения будет: " + summ(4, 7));
+//        System.out.println("Результат произведения будет: " + summ(0, -7));  //исправлено
 //        printTreygolnik();
-//        kolCifr(-1576);
+//        kolCifr(92185); //исправлено
 //        nechetChisla();
 //        indexMax();
 //        arrayNull();
 //        changeMax();
-//        repeatElArray();
+//        repeatElArray(); //исправлено
 //        printArray();
     }
 
@@ -36,8 +36,26 @@ public class HomeWorkLess4 {
 //        умножения, где a и b целые числа, вызовите метод summ  в методе main и распечатайте на консоль.
     private static int summ(int a, int b) {
         int result = 0;
-        for (int i = 1; i <= a; i++) {
-            result += b;
+        if ((a < 0) && (b > 0)) {
+            for (int i = 1; i <= Math.abs(a); i++) {
+                result += b;
+            }
+            result = result - result - result;
+        } else if ((a > 0) && (b < 0)) {
+            for (int i = 1; i <= Math.abs(b); i++) {
+                result += a;
+            }
+            result = result - result - result;
+        } else if ((a < 0) && (b < 0)) {
+            for (int i = 1; i <= Math.abs(b); i++) {
+                result += Math.abs(a);
+            }
+        } else if ((a == 0) || (b == 0)) {
+            result = 0;
+        } else {
+            for (int i = 1; i <= b; i++) {
+                result += a;
+            }
         }
         return result;
     }
@@ -120,23 +138,40 @@ public class HomeWorkLess4 {
 //        Надо вывести на экран сколько в этом числе цифр и положительное оно или отрицательное.
 //        Например, Введите число: 5
 //        "5 - это положительное число, количество цифр = 1"
+
     private static void kolCifr(int chis) {
-        int count = 0;
+//        int count = 0;
+//        if (chis > 0) {
+//            while (chis != 0) {
+//                chis /= 10;
+//                count++;
+//            }
+//            System.out.printf("Ваше число положительное и состоит из %d цифр.", count);
+//        } else if (chis < 0) {
+//            while (chis != 0) {
+//                chis /= 10;
+//                count++;
+//            }
+//            System.out.printf("Ваше число отрицательное и состоит из %d цифр.", count);
+//        } else {
+//            System.out.println("Ваше число 0.");
+//        }
         if (chis > 0) {
-            while (chis != 0) {
-                chis /= 10;
-                count++;
-            }
-            System.out.printf("Ваше число положительное и состоит из %d цифр.", count);
+            System.out.printf("Ваше число положительное и состоит из %d цифр.", countNum(chis));
         } else if (chis < 0) {
-            while (chis != 0) {
-                chis /= 10;
-                count++;
-            }
-            System.out.printf("Ваше число отрицательное и состоит из %d цифр.", count);
+            System.out.printf("Ваше число отрицательное и состоит из %d цифр.", countNum(chis));
         } else {
             System.out.println("Ваше число 0.");
         }
+    }
+
+    private static int countNum(int chis) {
+        int count = 0;
+        while (chis != 0) {
+            chis /= 10;
+            count++;
+        }
+        return count;
     }
 
 
@@ -240,19 +275,30 @@ public class HomeWorkLess4 {
 //        Пример: {0,34,46,31,20,1,28}
 //        Массив не имеет повторяющихся элементов
     private static void repeatElArray() {
-        int[] array = new int[9];
+        int[] array = new int[7];
         for (int i = 0; i < array.length; i++) {
             array[i] = (int) (Math.random() * 21);
         }
         System.out.println(Arrays.toString(array));
-        System.out.println();
+//        System.out.println();
+        boolean exit = false;
         for (int i = 0; i < array.length; i++) {
             for (int j = i + 1; j < array.length; j++) {
                 if (array[i] == array[j]) {
-                    System.out.print(array[i] + " ");
-                    break;
+                    if (!exit) {
+                        System.out.print("Массив имеет повторяющиеся элементы: ");
+                        System.out.print(array[i] + "; ");
+                        exit = true;
+                        break;
+                    } else if (exit) {
+                        System.out.print(array[i] + "; ");
+                        break;
+                    }
                 }
             }
+        }
+        if (exit == false) {
+            System.out.print("Массив не имеет повторяющихся элементов.");
         }
     }
 
@@ -296,6 +342,8 @@ public class HomeWorkLess4 {
 
 
 }
+
+
 
 
 
