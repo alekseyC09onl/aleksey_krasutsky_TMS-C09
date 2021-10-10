@@ -12,12 +12,12 @@ public class HomeWork {
 //        System.out.println(operation(0));
 //        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
 //        calculateSumOfDiagonalElements();
-//        countDevs(111811);
+//        countDevs(11);
 //        foobar(6);
 //        foobar(10);
 //        foobar(15);
 //        printMatrix();
-        printPrimeNumbers();
+//        printPrimeNumbers();
     }
 
     /**
@@ -78,8 +78,9 @@ public class HomeWork {
      * @param count - количество программистов
      */
     public static void countDevs(int count) {
+//        if ((count >= 10 && count <= 20) || (count % 100 >= 10 && count % 100 <= 20))
         String programmers = null;
-        if ((count >= 10 && count <= 20) || (count % 100 >= 10 && count % 100 <= 20)) {
+        if (count % 100 >= 10 && count % 100 <= 20) {
             programmers = "программистов";
         } else if (count % 10 == 1) {
             programmers = "программмист";
@@ -114,7 +115,7 @@ public class HomeWork {
      */
     public static void calculateSumOfDiagonalElements() {
         int summa = 0;
-        int[][] array = new int[3][3];
+        int[][] array = new int[5][5];
         for (int i = 0; i < array.length; i++) {
 //            System.out.println();
             for (int j = 0; j < array[i].length; j++) {
@@ -163,6 +164,7 @@ public class HomeWork {
 //                System.out.print(array[i][j] + " ");
             }
         }
+
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {
                 if (array[i][j] % 3 == 0) {
@@ -190,6 +192,16 @@ public class HomeWork {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
+        for (int i = 2; i < 1000; i++) {
+            for (int j = 2; j <= i; j++) {
+                if ((i % j == 0) && (j != i)) {
+                    break;
+                } else if ((j == i - 1) || (i == 2)) {
+                    System.out.print(i + " ");
+                }
+            }
+        }
+//        int count = 0;
 //        System.out.print("2 ");
 //        for (int i = 3; i < 1000; i++) {
 //            for (int j = 2; j < i; j++) {
@@ -200,15 +212,6 @@ public class HomeWork {
 //                }
 //            }
 //        }
-        for (int i = 2; i < 1000; i++) {
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
-                    break;
-                }
-                if (i == j + 1) {
-                    System.out.print(i + " ");
-                }
-            }
-        }
+
     }
 }
