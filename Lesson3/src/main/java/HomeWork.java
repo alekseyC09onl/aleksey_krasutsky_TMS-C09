@@ -12,7 +12,7 @@ public class HomeWork {
 //        System.out.println(operation(0));
 //        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
 //        calculateSumOfDiagonalElements();
-//        countDevs(103);
+//        countDevs(11);
 //        foobar(6);
 //        foobar(10);
 //        foobar(15);
@@ -78,29 +78,18 @@ public class HomeWork {
      * @param count - количество программистов
      */
     public static void countDevs(int count) {
-//        String programmers = null;
-//        if ((count >= 10 && count <= 20) || (count % 100 >= 10 && count % 100 <= 20)) {
-//            programmers = "программистов";
-//        } else if (count % 10 == 1) {
-//            programmers = "программмист";
-//        } else if ((count % 10 >= 2) && (count % 10 <= 4)) {
-//            programmers = "программиста";
-//        } else {
-//            programmers = "программистов";
-//        }
-//        System.out.println(count + " " + programmers);
-//        boolean exit = true;
-//        int temp = count;
-//        while (exit){
-//            temp=temp/10;
-//            if ((temp>=0) && (temp<=100)){
-//                if ((temp >= 10) && (temp <= 20)) {
-//                    System.out.println(count + " программистов");
-//                } else if (temp=0){
-//                    System.out.println();
-//                }
-//            }
-//        }
+//        if ((count >= 10 && count <= 20) || (count % 100 >= 10 && count % 100 <= 20))
+        String programmers = null;
+        if (count % 100 >= 10 && count % 100 <= 20) {
+            programmers = "программистов";
+        } else if (count % 10 == 1) {
+            programmers = "программмист";
+        } else if ((count % 10 >= 2) && (count % 10 <= 4)) {
+            programmers = "программиста";
+        } else {
+            programmers = "программистов";
+        }
+        System.out.println(count + " " + programmers);
     }
 
     /**
@@ -203,16 +192,26 @@ public class HomeWork {
      * что такое просто число (https://www.webmath.ru/poleznoe/formules_18_5.php)
      */
     public static void printPrimeNumbers() {
-        int count = 0;
-        System.out.print("2 ");
-        for (int i = 3; i < 1000; i++) {
-            for (int j = 2; j < i; j++) {
-                if (i % j == 0) {
+        for (int i = 2; i < 1000; i++) {
+            for (int j = 2; j <= i; j++) {
+                if ((i % j == 0) && (j != i)) {
                     break;
-                } else if (j == i - 1) {
+                } else if ((j == i - 1) || (i == 2)) {
                     System.out.print(i + " ");
                 }
             }
         }
+//        int count = 0;
+//        System.out.print("2 ");
+//        for (int i = 3; i < 1000; i++) {
+//            for (int j = 2; j < i; j++) {
+//                if (i % j == 0) {
+//                    break;
+//                } else if (j == i - 1) {
+//                    System.out.print(i + " ");
+//                }
+//            }
+//        }
+
     }
 }
