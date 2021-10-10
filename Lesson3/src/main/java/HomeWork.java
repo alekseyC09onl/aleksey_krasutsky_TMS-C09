@@ -17,7 +17,7 @@ public class HomeWork {
 //        foobar(10);
 //        foobar(15);
 //        printMatrix();
-        printPrimeNumbers();
+//        printPrimeNumbers();
     }
 
     /**
