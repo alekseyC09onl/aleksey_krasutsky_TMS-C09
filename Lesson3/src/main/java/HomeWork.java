@@ -7,7 +7,7 @@ public class HomeWork {
     public static void main(String[] args) {
 
         //Некоторые тесты для проверки задач. Можно также написать свои тесты.
-//        printArray();
+        printArray();
 //        System.out.println(operation(1));
 //        System.out.println(operation(0));
 //        System.out.println(calculateCountOfOddElementsInMatrix(new int[]{1, 2, 3, 4, 5, 6}));
