@@ -5,6 +5,12 @@ public class MilitaryOffice {
         this.personRegistry = personRegistry;
     }
 
+//    void futureArmy() {
+//        for (Person person : personRegistry) {
+//
+//        }
+//    }
+
 //    void printNamesArmy() {
 //        for (int age : personRegistry) {
 //
