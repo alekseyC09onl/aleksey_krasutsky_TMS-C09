@@ -30,9 +30,9 @@ public class PersonFactory {
         recruit = new Person[count];
         for (int i = 0; i < recruit.length; i++) {
             System.out.println("Необходимо заполнить данные " + (i + 1) + "-го новобранца!");
-            System.out.println("Введите имя:");
+            System.out.println("Введите имя: ");
             name = consoleLine.nextLine();
-            System.out.println("Введите возраст:");
+            System.out.println("Введите возраст: ");
             while (true) {
                 while (!consoleInt.hasNextInt()) {
                     System.out.println("Ошибка при вводе, введите возраст еще раз: ");

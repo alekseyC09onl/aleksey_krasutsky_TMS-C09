@@ -8,7 +8,7 @@ public class MilitaryOffice {
     }
 
     public void printReadyToArmyFromMinsk() {
-        System.out.println("Годны к службе из Минска: " + PersonRegistry.getReadyToArmyFromChooseCity("Минск"));
+        System.out.println("Годны к службе из Минска: " + PersonRegistry.getReadyToArmyFromChooseCity("минск"));
     }
 
     public void printReadyToArmyRangeYearOld(int min, int max) {

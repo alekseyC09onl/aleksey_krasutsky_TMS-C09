@@ -43,7 +43,7 @@ public class PersonRegistry {
     public static int getReadyToArmyFromMinsk() {
         int count1 = 0;
         for (Person person : readyToArmy()) {
-            if (person.getCity().equalsIgnoreCase("Минск")) {
+            if (person.getCity().equalsIgnoreCase("минск")) {
                 count1++;
             }
         }

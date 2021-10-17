@@ -1,7 +1,7 @@
 public class Main {
     public static void main(String[] args) throws InterruptedException {
 
-//        Person alex = new Person("Алексей", 24, "MALE", "Беларусь", "Минск");
+//        Person alex = new Person("Алексей", 24, "MALE", "Беларусь", "Минск");//
 //        Person pavel = new Person("Павел", 24, "MALE", "Россия", "Москва");
 //        Person alina = new Person("Алина", 24, "FEMALE", "Беларусь", "Минск");
 //        Person vova = new Person("Владимир", 30, "MALE", "Беларусь", "Минск");
