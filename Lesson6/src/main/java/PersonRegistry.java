@@ -1,5 +1,5 @@
 public class PersonRegistry {
-    public static Person[] recruit;
+    private static Person[] recruit;
     private static int count;
     private static Person[] futureArmy;
 
@@ -29,39 +29,4 @@ public class PersonRegistry {
         count = 0;
         return futureArmy;
     }
-
-    public static void getReadyToArmy(Person[] recruit) {
-        for (Person person : readyToArmy(recruit)) {
-            System.out.println(person.getName() + " - годен");
-        }
-    }
-
-    public static int getReadyToArmyFromMinsk(Person[] recruit) {
-        for (Person person : readyToArmy(recruit)) {
-            if (person.getCity().equalsIgnoreCase("minsk")) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    public static int getReadyToArmyOldYear(Person[] recruit) {
-        for (Person person : readyToArmy(recruit)) {
-            if (person.getAge() >= 25 && person.getAge() < 27) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-    public static int getReadyToArmyAleksandr(Person[] recruit) {
-        for (Person person : readyToArmy(recruit)) {
-            if (person.getName().equalsIgnoreCase("Aleksandr")) {
-                count++;
-            }
-        }
-        return count;
-    }
-
-
 }
