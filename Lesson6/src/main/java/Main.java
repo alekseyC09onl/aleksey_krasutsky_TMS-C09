@@ -38,10 +38,6 @@ public class Main {
         for (int i = 0; i < recruit.length; i++) {
             System.out.println("Необходимо заполнить данные " + (i + 1) + "-го новобранца!");
             System.out.println("Введите имя:");
-            while (!consoleLine.hasNextLine()) {
-                System.out.println("Ошибка при вводе, введите имя еще раз!");
-                consoleLine.next();
-            }
             name = consoleLine.nextLine();
             System.out.println("Введите возраст:");
             while (!consoleInt.hasNextInt()) {
@@ -61,16 +57,8 @@ public class Main {
                 sex = Person.FEMALE;
             }
             System.out.println("Введите страну проживания: ");
-            while (!consoleLine.hasNextLine()) {
-                System.out.println("Ошибка при вводе, введите страну еще раз!");
-                consoleLine.next();
-            }
             country = consoleLine.nextLine();
             System.out.println("Введите город проживания: ");
-            while (!consoleLine.hasNextLine()) {
-                System.out.println("Ошибка при вводе, введите город еще раз!");
-                consoleLine.next();
-            }
             city = consoleLine.nextLine();
             recruit[i] = new Person(name, age, sex, country, city);
         }
