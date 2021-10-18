@@ -4,12 +4,12 @@ public class PersonFactory {
     private Scanner console = new Scanner(System.in);
     private static int count;
     private Person[] recruit;
-    String name;
-    int age;
-    int sex1;
-    String sex;
-    String country;
-    String city;
+    private String name;
+    private int age;
+    private int sex1;
+    private String sex;
+    private String country;
+    private String city;
 
 
     public Person[] createPerson() {

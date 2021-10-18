@@ -1,17 +1,18 @@
 public class PersonRegistry {
-    private static Person[] recruit;
-    private static int count;
-    //    private int count1;
-    private static Person[] futureArmy;
+    private Person[] recruit;
+    private int count;
+    private Person[] futureArmy;
 
     public PersonRegistry(Person[] recruit) {
         this.recruit = recruit;
     }
 
+    PersonFactory personFactory = new PersonFactory();
 
-    public static Person[] readyToArmy() {
-        count = 0;
-        for (Person person : recruit) {
+
+    public Person[] readyToArmy() {
+        int count = 0;
+        for (Person person : personFactory.createPerson()) {
             if (person.getGender().equalsIgnoreCase(Person.MALE)) {
                 if (person.getAge() >= 18 && person.getAge() < 27) {
                     count++;
@@ -20,7 +21,7 @@ public class PersonRegistry {
         }
         futureArmy = new Person[count];
         count = 0;
-        for (Person person : recruit) {
+        for (Person person : personFactory.createPerson()) {
             if (person.getGender().equalsIgnoreCase(Person.MALE)) {
                 if (person.getAge() >= 18 && person.getAge() < 27) {
                     futureArmy[count] = person;
@@ -32,7 +33,7 @@ public class PersonRegistry {
         return futureArmy;
     }
 
-    public static void getReadyToArmy() {
+    public void getReadyToArmy() {
         System.out.print("Годны к службе: ");
         for (Person person : readyToArmy()) {
             System.out.print(person.getName() + "; ");
@@ -40,7 +41,7 @@ public class PersonRegistry {
         System.out.println();
     }
 
-    public static int getReadyToArmyFromMinsk() {
+    public int getReadyToArmyFromMinsk() {
         int count1 = 0;
         for (Person person : readyToArmy()) {
             if (person.getCity().equalsIgnoreCase("минск")) {
@@ -50,7 +51,7 @@ public class PersonRegistry {
         return count1;
     }
 
-    public static int getReadyToArmyFromChooseCity(String city) {
+    public int getReadyToArmyFromChooseCity(String city) {
         int count1 = 0;
         for (Person person : readyToArmy()) {
             if (person.getCity().equalsIgnoreCase(city)) {
@@ -60,7 +61,7 @@ public class PersonRegistry {
         return count1;
     }
 
-    public static int getReadyToArmyOldYear() {
+    public int getReadyToArmyOldYear() {
         int count1 = 0;
         for (Person person : readyToArmy()) {
             if (person.getAge() >= 25 && person.getAge() < 27) {
@@ -70,7 +71,7 @@ public class PersonRegistry {
         return count1;
     }
 
-    public static int getCountReadyToArmyRangeYearOld(int min, int max) {
+    public int getCountReadyToArmyRangeYearOld(int min, int max) {
         int count1 = 0;
         for (Person person : readyToArmy()) {
             if (person.getAge() >= min && person.getAge() < max) {
@@ -80,7 +81,7 @@ public class PersonRegistry {
         return count1;
     }
 
-    public static int getCountReadyToArmyChooseName(String name) {
+    public int getCountReadyToArmyChooseName(String name) {
         int count1 = 0;
         for (Person person : readyToArmy()) {
             if (person.getName().equalsIgnoreCase(name)) {
