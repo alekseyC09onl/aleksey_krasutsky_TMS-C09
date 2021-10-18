@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class PersonFactory {
     private Scanner console = new Scanner(System.in);
-    private static int count;
+    private int count;
     private Person[] recruit;
     private String name;
     private int age;
