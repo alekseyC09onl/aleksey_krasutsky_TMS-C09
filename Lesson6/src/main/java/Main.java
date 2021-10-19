@@ -7,17 +7,11 @@ public class Main {
 //        Person vova = new Person("Владимир", 30, "MALE", "Беларусь", "Минск");
 //        Person gena = new Person("Геннадий", 26, Person.MALE, "Беларусь", "Минск");
 //        Person aleksandr = new Person("Александр", 26, Person.MALE, "Беларусь", "Брест");
-//        recruit = new Person[]{alex, pavel, alina, vova, gena, aleksandr};
-//        PersonRegistry personRegistry = new PersonRegistry(recruit);
-//        MilitaryOffice militaryOffice = new MilitaryOffice();
-//        militaryOffice.printReadyToArmy();
-//        militaryOffice.printReadyToArmyFromMinsk();
-//        militaryOffice.printReadyToArmyRangeYearOld();
-//        militaryOffice.printReadyToArmyChooseName();
+//        Person[] recruit = new Person[]{alex, pavel, alina, vova, gena, aleksandr};
 
         PersonFactory personFactory = new PersonFactory();
         PersonRegistry personRegistry = new PersonRegistry(personFactory.createPerson());
-        MilitaryOffice militaryOffice = new MilitaryOffice();
+        MilitaryOffice militaryOffice = new MilitaryOffice(personRegistry);
         militaryOffice.printReadyToArmy();
         militaryOffice.printReadyToArmyFromMinsk();
         militaryOffice.printReadyToArmyRangeYearOld(25, 27);

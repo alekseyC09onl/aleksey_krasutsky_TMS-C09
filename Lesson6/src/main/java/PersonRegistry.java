@@ -10,8 +10,6 @@ public class PersonRegistry {
         this.recruit = recruit;
     }
 
-//    PersonFactory personFactory = new PersonFactory();
-
 
     public Person[] readyToArmy() {
         int count = 0;

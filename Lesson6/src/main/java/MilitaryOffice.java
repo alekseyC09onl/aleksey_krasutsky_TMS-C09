@@ -1,8 +1,10 @@
 public class MilitaryOffice {
-    public MilitaryOffice() {
+    private PersonRegistry personRegistry;
+
+    public MilitaryOffice(PersonRegistry personRegistry) {
+        this.personRegistry = personRegistry;
     }
 
-    PersonRegistry personRegistry = new PersonRegistry();
 
     public void printReadyToArmy() {
         personRegistry.getReadyToArmy();
