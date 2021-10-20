@@ -6,7 +6,4 @@ import lombok.Setter;
 
 public class Engine {
     private boolean onOff;
-    private FuelTank fuelTank;
-
-
 }

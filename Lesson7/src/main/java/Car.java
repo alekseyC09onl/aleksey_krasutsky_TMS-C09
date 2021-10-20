@@ -10,7 +10,6 @@ public class Car {
     private int countDistance;
     private String modelCar;
     private int yearOfIssueCar;
-    private Zapravka zapravka;
 
     public Car(Engine engine, FuelTank fuelTank) {
         this.engine = engine;
@@ -36,7 +35,10 @@ public class Car {
             System.out.println("Машина поехала.");
             countDistance += 10;
             fuelTank.setVolumeFuelTank(fuelTank.getVolumeFuelTank() - 1);
-
+            if (fuelTank.getVolumeFuelTank() <= 0) {
+                System.out.println("Машина глохнет, закончилось топливо.");
+                onOffEngine();
+            }
         } else {
             System.out.println("Не могу ехать, не завелся двигатель!");
         }
