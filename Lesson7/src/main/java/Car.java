@@ -1,9 +1,3 @@
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
-
 public class Car {
     private Engine engine;
     private FuelTank fuelTank;
@@ -11,13 +5,16 @@ public class Car {
     private String modelCar;
     private int yearOfIssueCar;
 
-    public Car(Engine engine, FuelTank fuelTank) {
-        this.engine = engine;
+    public Car(FuelTank fuelTank, Engine engine, String modelCar, int yearOfIssueCar) {
         this.fuelTank = fuelTank;
+        this.engine = engine;
+        this.modelCar = modelCar;
+        this.yearOfIssueCar = yearOfIssueCar;
     }
 
+
     public boolean onOffEngine() {
-        if (fuelTank.getVolumeFuelTank() > 0) {
+        if (fuelTank.getVolumeFuelInFuelTank() > 0) {
             engine.setOnOff(!engine.isOnOff());
             if (engine.isOnOff()) {
                 System.out.println("Заводится двигатель");
@@ -34,28 +31,43 @@ public class Car {
         if (engine.isOnOff()) {
             System.out.println("Машина поехала.");
             countDistance += 10;
-            fuelTank.setVolumeFuelTank(fuelTank.getVolumeFuelTank() - 1);
-            if (fuelTank.getVolumeFuelTank() <= 0) {
+            fuelTank.setVolumeFuelInFuelTank(fuelTank.getVolumeFuelInFuelTank() - 1);
+            if (fuelTank.getVolumeFuelInFuelTank() <= 0) {
                 System.out.println("Машина глохнет, закончилось топливо.");
-                onOffEngine();
+                engine.setOnOff(!engine.isOnOff());
             }
         } else {
             System.out.println("Не могу ехать, не завелся двигатель!");
         }
     }
 
+
     public void getCountDistance() {
-        System.out.println("Машина проехала " + countDistance + " километров.");
+        System.out.println("Машина проехала: " + countDistance + " км.");
     }
 
     public void getCarVolumeFuel() {
-        System.out.println("Осталось " + fuelTank.getVolumeFuelTank() + " литров топлива.");
+        System.out.println("Осталось топлива: " + fuelTank.getVolumeFuelInFuelTank() + " л.");
     }
 
     public void addVolumeFuelToCar(int addVolumeFuel) {
-        fuelTank.setVolumeFuelTank(fuelTank.getVolumeFuelTank() + addVolumeFuel);
-        System.out.println("Вы залили " + addVolumeFuel + " литров топлива");
+        if ((fuelTank.getVolumeFuelInFuelTank() + addVolumeFuel) <= fuelTank.getTotalVolumeFuelTank()) {
+            fuelTank.setVolumeFuelInFuelTank(fuelTank.getVolumeFuelInFuelTank() + addVolumeFuel);
+            System.out.println("Вы залили топлива: " + addVolumeFuel + " л.");
+        } else {
+            System.out.println("Вы не можете залить столько топлива, максимальный объем: " + fuelTank.getTotalVolumeFuelTank());
+        }
+
     }
 
-
+    @Override
+    public String toString() {
+        return "Car{" +
+                "engine=" + engine + "\n" +
+                ", fuelTank=" + fuelTank + "\n" +
+                ", countDistance=" + countDistance +
+                ", modelCar='" + modelCar + '\'' +
+                ", yearOfIssueCar=" + yearOfIssueCar +
+                '}';
+    }
 }
