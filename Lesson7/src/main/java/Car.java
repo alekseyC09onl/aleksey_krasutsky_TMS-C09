@@ -5,9 +5,9 @@ public class Car {
     private String modelCar;
     private int yearOfIssueCar;
 
-    public Car(FuelTank fuelTank, Engine engine, String modelCar, int yearOfIssueCar) {
+    public Car(FuelTank fuelTank, int powerInHorsepower, float volumeOfEngine, String modelCar, int yearOfIssueCar) {
+        this.engine = new Engine(powerInHorsepower, volumeOfEngine);
         this.fuelTank = fuelTank;
-        this.engine = engine;
         this.modelCar = modelCar;
         this.yearOfIssueCar = yearOfIssueCar;
     }
@@ -64,8 +64,8 @@ public class Car {
     public String toString() {
         return "Car{" +
                 "engine=" + engine + "\n" +
-                ", fuelTank=" + fuelTank + "\n" +
-                ", countDistance=" + countDistance +
+                "fuelTank=" + fuelTank + "\n" +
+                "countDistance=" + countDistance +
                 ", modelCar='" + modelCar + '\'' +
                 ", yearOfIssueCar=" + yearOfIssueCar +
                 '}';

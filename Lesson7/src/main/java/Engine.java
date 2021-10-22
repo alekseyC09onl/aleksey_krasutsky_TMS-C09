@@ -9,6 +9,11 @@ public class Engine {
     private int powerInHorsepower;
     private float volumeOfEngine;
 
+    public Engine(int powerInHorsepower, float volumeOfEngine) {
+        this.powerInHorsepower = powerInHorsepower;
+        this.volumeOfEngine = volumeOfEngine;
+    }
+
     @Override
     public String toString() {
         return "Engine{" +
