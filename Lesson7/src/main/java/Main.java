@@ -1,6 +1,6 @@
 public class Main {
     public static void main(String[] args) {
-        FuelTank fuelTank = new FuelTank(3, 50);
+        FuelTank fuelTank = new FuelTank(3, 1);
         Car car = new Car(fuelTank, 160, 2.0f, "BMW", 2019);
         car.goOnCar();
         car.onOffEngine();

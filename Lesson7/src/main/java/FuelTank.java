@@ -13,8 +13,6 @@ public class FuelTank {
             this.volumeFuelInFuelTank = volumeFuelInFuelTank;
             this.totalVolumeFuelTank = totalVolumeFuelTank;
         } else {
-            this.volumeFuelInFuelTank = 0;
-            this.totalVolumeFuelTank = 0;
             System.out.println("Уровень топлива не может быть больше объема бака");
         }
 

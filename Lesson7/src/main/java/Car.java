@@ -50,10 +50,10 @@ public class Car {
         System.out.println("Осталось топлива: " + fuelTank.getVolumeFuelInFuelTank() + " л.");
     }
 
-    public void addVolumeFuelToCar(int addVolumeFuel) {
-        if ((fuelTank.getVolumeFuelInFuelTank() + addVolumeFuel) <= fuelTank.getTotalVolumeFuelTank()) {
-            fuelTank.setVolumeFuelInFuelTank(fuelTank.getVolumeFuelInFuelTank() + addVolumeFuel);
-            System.out.println("Вы залили топлива: " + addVolumeFuel + " л.");
+    public void addVolumeFuelToCar(int volumeFuel) {
+        if ((fuelTank.getVolumeFuelInFuelTank() + volumeFuel) <= fuelTank.getTotalVolumeFuelTank()) {
+            fuelTank.setVolumeFuelInFuelTank(fuelTank.getVolumeFuelInFuelTank() + volumeFuel);
+            System.out.println("Вы залили топлива: " + volumeFuel + " л.");
         } else {
             System.out.println("Вы не можете залить столько топлива, максимальный объем: " + fuelTank.getTotalVolumeFuelTank());
         }
