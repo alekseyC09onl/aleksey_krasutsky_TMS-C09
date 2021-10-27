@@ -3,6 +3,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
 public class Transport {
     private int powerInHorsepower;
     private int maxSpeed;

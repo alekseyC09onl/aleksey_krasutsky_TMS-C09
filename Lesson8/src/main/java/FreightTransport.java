@@ -18,7 +18,6 @@ public class FreightTransport extends LandTransport {
             System.out.println("Грузовик загружен.");
         } else {
             System.out.println("Вам нужен грузовик побольше!");
-            ;
         }
     }
 

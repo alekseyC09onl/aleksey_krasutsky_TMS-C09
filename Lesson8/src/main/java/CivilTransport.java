@@ -1,7 +1,13 @@
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 
 public class CivilTransport extends AirTransport {
     private int numberOfPassengers;
     private boolean businessClassAvailability;
+    private int countOfPassengers;
 
     public CivilTransport(int powerInHorsepower, int maxSpeed, int weight, String brand, int wingspan, int minLengthRunway, int numberOfPassengers, boolean businessClassAvailability) {
         super(powerInHorsepower, maxSpeed, weight, brand, wingspan, minLengthRunway);
@@ -11,6 +17,15 @@ public class CivilTransport extends AirTransport {
 
     public float powerInKw() {
         return (float) (super.getPowerInHorsepower() * 0.74);
+    }
+
+    public void possibilityLoadPassengers(int passengers) {
+        countOfPassengers += passengers;
+        if (countOfPassengers <= numberOfPassengers) {
+            System.out.println("Самолет загружен.");
+        } else {
+            System.out.println("Вам нужен самолет побольше!");
+        }
     }
 
     @Override

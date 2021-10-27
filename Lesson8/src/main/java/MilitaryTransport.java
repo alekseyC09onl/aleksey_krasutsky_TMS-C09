@@ -1,3 +1,8 @@
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
 
 public class MilitaryTransport extends AirTransport {
     private boolean systemOfBailout;
@@ -7,6 +12,23 @@ public class MilitaryTransport extends AirTransport {
         super(powerInHorsepower, maxSpeed, weight, brand, wingspan, minLengthRunway);
         this.systemOfBailout = systemOfBailout;
         this.countOfRocket = countOfRocket;
+    }
+
+    public void shot() {
+        if (countOfRocket > 0) {
+            System.out.println("Ракета пошла...");
+            countOfRocket--;
+        } else {
+            System.out.println("Боеприпасы отсутствуют!");
+        }
+    }
+
+    public void bailout() {
+        if (systemOfBailout) {
+            System.out.println("Катапультирование прошло успешно.");
+        } else {
+            System.out.println("У вас нет такой системы.");
+        }
     }
 
     public float powerInKw() {
