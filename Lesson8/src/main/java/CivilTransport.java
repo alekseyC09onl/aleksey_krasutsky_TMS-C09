@@ -15,10 +15,6 @@ public class CivilTransport extends AirTransport {
         this.businessClassAvailability = businessClassAvailability;
     }
 
-    public float powerInKw() {
-        return (float) (super.getPowerInHorsepower() * 0.74);
-    }
-
     public void possibilityLoadPassengers(int passengers) {
         countOfPassengers += passengers;
         if (countOfPassengers <= numberOfPassengers) {

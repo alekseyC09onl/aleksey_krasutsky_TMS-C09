@@ -13,7 +13,6 @@ public class LandTransport extends Transport {
         this.fuelConsumption = fuelConsumption;
     }
 
-
     @Override
     public void info() {
         super.info();

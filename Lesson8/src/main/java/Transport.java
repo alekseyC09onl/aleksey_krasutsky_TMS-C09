@@ -17,6 +17,10 @@ public class Transport {
         this.brand = brand;
     }
 
+    public float powerInKw() {
+        return (float) (getPowerInHorsepower() * 0.74);
+    }
+
     public void info() {
         System.out.printf("Мощность: %d л.с.;\nМаксимальная скорость: %d км/ч;\nМасса: %d;\nМарка: %s;", powerInHorsepower, maxSpeed, weight, brand);
     }

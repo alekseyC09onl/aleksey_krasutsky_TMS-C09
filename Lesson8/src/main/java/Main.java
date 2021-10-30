@@ -4,15 +4,18 @@ public class Main {
         System.out.println(lightTransport.powerInKw());
         lightTransport.distanceOfTime(2);
         FreightTransport freightTransport = new FreightTransport(600, 180, 5000, "Scania", 6, 24, 12000);
+        System.out.println(freightTransport.powerInKw());
         freightTransport.possibilityLoad(10000);
         freightTransport.possibilityLoad(2001);
         CivilTransport civilTransport = new CivilTransport(1000, 1500, 5000, "Airbus", 50, 1000, 150, true);
+        System.out.println(civilTransport.powerInKw());
         civilTransport.possibilityLoadPassengers(120);
         civilTransport.possibilityLoadPassengers(50);
         MilitaryTransport militaryTransport = new MilitaryTransport(1100, 1600, 4000, "AirBattler", 40, 600, true, 2);
-        militaryTransport.shot();
-        militaryTransport.shot();
-        militaryTransport.shot();
+        System.out.println(militaryTransport.powerInKw());
+        for (int i = 0; i < 3; i++) {
+            militaryTransport.shot();
+        }
         militaryTransport.bailout();
 
     }

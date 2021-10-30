@@ -31,10 +31,6 @@ public class MilitaryTransport extends AirTransport {
         }
     }
 
-    public float powerInKw() {
-        return (float) (super.getPowerInHorsepower() * 0.74);
-    }
-
     @Override
     public void info() {
         super.info();

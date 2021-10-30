@@ -8,10 +8,6 @@ public class FreightTransport extends LandTransport {
         this.liftingCapacity = liftingCapacity;
     }
 
-    public float powerInKw() {
-        return (float) (super.getPowerInHorsepower() * 0.74);
-    }
-
     public void possibilityLoad(int weight) {
         countWeight += weight;
         if (countWeight <= liftingCapacity) {

@@ -9,10 +9,6 @@ public class LightTransport extends LandTransport {
         this.numberOfPassengers = numberOfPassengers;
     }
 
-    public float powerInKw() {
-        return (float) (super.getPowerInHorsepower() * 0.74);
-    }
-
     public void distanceOfTime(int time) {
         float distance = super.getMaxSpeed() * time;
         System.out.println("За время " + time + " ч автомобиль " + super.getBrand() + " , двигаясь с максимальной скоростью " + super.getMaxSpeed() + " км/ч, проедет " + distance + " км и израсходует " + consumedFuel(distance) + " л топлива.");
