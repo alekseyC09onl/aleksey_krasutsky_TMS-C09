@@ -1,7 +1,7 @@
 package task2;
 
 public interface IJacket {
-    void putON();
+    void putOn();
 
     void takeOff();
 }

@@ -2,7 +2,7 @@ package task2;
 
 public class Boots implements IShoes {
     @Override
-    public void putON() {
+    public void putOn() {
         System.out.println("Надевает сапоги");
     }
 

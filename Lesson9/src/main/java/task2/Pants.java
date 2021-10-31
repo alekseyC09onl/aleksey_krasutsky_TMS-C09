@@ -2,7 +2,7 @@ package task2;
 
 public class Pants implements ITrousers {
     @Override
-    public void putON() {
+    public void putOn() {
         System.out.println("Надевает брюки");
     }
 

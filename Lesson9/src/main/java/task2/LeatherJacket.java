@@ -2,7 +2,7 @@ package task2;
 
 public class LeatherJacket implements IJacket {
     @Override
-    public void putON() {
+    public void putOn() {
         System.out.println("Надевает кожаную куртку");
     }
 

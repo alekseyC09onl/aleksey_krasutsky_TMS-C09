@@ -13,10 +13,10 @@ public class Person {
         this.iShoes = iShoes;
     }
 
-    void putON() {
-        iJacket.putON();
-        iTrousers.putON();
-        iShoes.putON();
+    void putOn() {
+        iJacket.putOn();
+        iTrousers.putOn();
+        iShoes.putOn();
     }
 
     void takeOff() {

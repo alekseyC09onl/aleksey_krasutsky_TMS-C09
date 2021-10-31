@@ -1,7 +1,7 @@
 package task2;
 
 public interface ITrousers {
-    void putON();
+    void putOn();
 
     void takeOff();
 }
