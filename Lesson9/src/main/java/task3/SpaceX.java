@@ -7,31 +7,22 @@ public class SpaceX implements IStart {
 
     @Override
     public boolean checkBeforeStart() {
-        boolean flag = false;
         System.out.println("Для предстартовой проверки необходимо угадать число от 1 до 40 за 5 попыток ");
         int rand = (int) ((Math.random() * 40) + 1);
-        for (int i = 5; i > 0; i--) {
-            System.out.println("Введите число, осталось попыток: " + i);
+        for (int i = 1; i <= 5; i++) {
+            System.out.println("Введите число, попытка №" + i);
             int cons = console.nextInt();
-            if (rand < cons) {
-                System.out.println("Введенное число больше загаданного");
-                if (i == 1) {
-                    System.out.println("Загаданное число: " + rand);
-                    flag = false;
-                }
+            if (rand == cons) {
+                System.out.println("Вы угадали! Предстартовая проверка успешно пройдена");
+                return true;
             } else if (rand > cons) {
                 System.out.println("Введенное число меньше загаданного");
-                if (i == 1) {
-                    System.out.println("Загаданное число: " + rand);
-                    flag = false;
-                }
             } else {
-                System.out.println("Вы угадали! Предстартовая проверка успешно пройдена");
-                flag = true;
-                break;
+                System.out.println("Введенное число больше загаданного");
             }
         }
-        return flag;
+        System.out.println("Загаданное число: " + rand);
+        return false;
     }
 
     @Override
