@@ -1,6 +1,6 @@
 package service;
 
 public interface CarService {
-    void start() throws Exception;
+    void start() throws CarIsNotStart;
 
 }
