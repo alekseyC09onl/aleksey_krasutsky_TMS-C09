@@ -10,12 +10,12 @@ import model.Car;
 @AllArgsConstructor
 
 public class CarServiceEmpl implements CarService {
-    Car car;
+    private Car car;
 
     @Override
-    public void start() throws Exception {
+    public void start() throws CarIsNotStart {
         if (((int) (Math.random() * 21)) % 2 == 0) {
-            throw new Exception("Exception: value of random number is even!");
+            throw new CarIsNotStart("Машина " + car.getBrand() + " не завелась!");
         } else {
             System.out.println("Автомобиль марки " + car.getBrand() + " завелся");
         }
