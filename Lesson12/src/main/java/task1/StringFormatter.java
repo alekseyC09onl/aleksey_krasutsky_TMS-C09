@@ -2,9 +2,9 @@ package task1;
 
 public interface StringFormatter {
 
-    void cutString(int cutFrom, int cutTo);
+    void cutString(String fromSymbol, String toSymbol, String string);
 
-    void changeSymbols(int positionOne, int positionTwo);
+    void changeSymbols(int positionOne, int positionTwo, String string);
 
     void getPalindroms(String... words);
 

@@ -1,31 +1,35 @@
 package task1;
 
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
-@AllArgsConstructor
+
 @Getter
 @Setter
 
 public class StringFormatterImpl implements StringFormatter {
-    String string;
+
 
     @Override
-    public void cutString(int cutFrom, int cutTo) {
-        String str = string.substring(cutFrom, cutTo);
-        String stringNew = string.replace(str, "");
-        System.out.println(stringNew);
+    public void cutString(String fromSymbol, String toSymbol, String string) {
+        String str = string.substring(string.indexOf(fromSymbol), string.lastIndexOf(toSymbol) + 1);
+        System.out.println(string.replace(str, ""));
     }
 
     @Override
-    public void changeSymbols(int positionOne, int positionTwo) {
-
+    public void changeSymbols(int positionOne, int positionTwo, String string) {
+        char changeIt = string.charAt(positionOne);
+        char changeTo = string.charAt(positionTwo);
+        System.out.println(string.replace(changeIt, changeTo));
     }
 
     @Override
     public void getPalindroms(String... words) {
-
+        for (String word : words) {
+            if (new StringBuilder(word).toString().equals(new StringBuilder(word).reverse().toString())) {
+                System.out.println(word);
+            }
+        }
     }
 
     @Override
