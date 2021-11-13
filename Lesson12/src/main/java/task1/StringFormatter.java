@@ -8,7 +8,6 @@ public interface StringFormatter {
 
     void getPalindroms(String... words);
 
-    void getSentences(int countWordsFrom, int countWordsTo);
-
+    void getSentencesWithCountWords(String text, int countWordsFrom, int countWordsTo);
 
 }

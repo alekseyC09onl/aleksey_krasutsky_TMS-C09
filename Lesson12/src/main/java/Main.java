@@ -8,8 +8,9 @@ public class Main {
         System.out.println("------");
         stringFormatter.changeSymbols(3, 0, "electricity");
         System.out.println("------");
-        String[] strings = {"шалаш", "казак", "полиндром", "дед", "программа"};
+        String[] strings = {"шалаш", "казак", "палиндром", "дед", "программа"};
         stringFormatter.getPalindroms(strings);
-
+        System.out.println("------");
+        stringFormatter.getSentencesWithCountWords("Резко пошел дождь. Дети старались быстрее найти укрытие от него. Если бы не шалаш рядом все бы промокли. Все обошлось. Всех спас шалаш.", 3, 5);
     }
 }

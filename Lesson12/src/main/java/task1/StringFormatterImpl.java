@@ -3,6 +3,10 @@ package task1;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.util.Arrays;
+
+import static task1.Helpers.checkPalindroms;
+
 
 @Getter
 @Setter
@@ -26,14 +30,25 @@ public class StringFormatterImpl implements StringFormatter {
     @Override
     public void getPalindroms(String... words) {
         for (String word : words) {
-            if (new StringBuilder(word).toString().equals(new StringBuilder(word).reverse().toString())) {
+            if (checkPalindroms(word)) {
                 System.out.println(word);
             }
         }
     }
 
     @Override
-    public void getSentences(int countWordsFrom, int countWordsTo) {
-
+    public void getSentencesWithCountWords(String text, int countWordsFrom, int countWordsTo) {
+        String[] sentences = text.split("[.]");
+        for (String sentence : sentences) {
+            String[] words = sentence.split("\s");
+            if (words.length >= countWordsFrom && words.length <= countWordsTo) {
+                System.out.println(Arrays.toString(words));
+            }
+            for (String word : words) {
+                if (checkPalindroms(word)) {
+                    System.out.println(word);
+                }
+            }
+        }
     }
 }
