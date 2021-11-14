@@ -36,7 +36,7 @@ public class StringFormatterImpl implements StringFormatter {
 
     @Override
     public void getSentencesWithCountWords(String text, int countWordsFrom, int countWordsTo) {
-        String[] sentences = text.split("[.]\s");
+        String[] sentences = text.split("\\.\\s*");
         for (int i = 0; i < sentences.length; i++) {
             String[] words = sentences[i].split("\s");
             if ((words.length >= countWordsFrom && words.length <= countWordsTo)) {
