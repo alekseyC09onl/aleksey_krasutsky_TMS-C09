@@ -3,8 +3,6 @@ package task1;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.Arrays;
-
 import static task1.Helpers.checkPalindroms;
 
 
@@ -38,15 +36,16 @@ public class StringFormatterImpl implements StringFormatter {
 
     @Override
     public void getSentencesWithCountWords(String text, int countWordsFrom, int countWordsTo) {
-        String[] sentences = text.split("[.]");
-        for (String sentence : sentences) {
-            String[] words = sentence.split("\s");
-            if (words.length >= countWordsFrom && words.length <= countWordsTo) {
-                System.out.println(Arrays.toString(words));
-            }
-            for (String word : words) {
-                if (checkPalindroms(word)) {
-                    System.out.println(word);
+        String[] sentences = text.split("[.]\s");
+        for (int i = 0; i < sentences.length; i++) {
+            String[] words = sentences[i].split("\s");
+            if ((words.length >= countWordsFrom && words.length <= countWordsTo)) {
+                System.out.println(sentences[i]);
+            } else {
+                for (String word : words) {
+                    if ((checkPalindroms(word))) {
+                        System.out.println(sentences[i]);
+                    }
                 }
             }
         }

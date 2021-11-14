@@ -11,6 +11,6 @@ public class Main {
         String[] strings = {"шалаш", "казак", "палиндром", "дед", "программа"};
         stringFormatter.getPalindroms(strings);
         System.out.println("------");
-        stringFormatter.getSentencesWithCountWords("Резко пошел дождь. Дети старались быстрее найти укрытие от него. Если бы не шалаш рядом все бы промокли. Все обошлось. Всех спас шалаш.", 3, 5);
+        stringFormatter.getSentencesWithCountWords("Резко пошел дождь. Дети старались быстрее найти укрытие от него. Если бы не шалаш рядом все бы промокли. Все обошлось. Всех спас шалаш. ", 3, 5);
     }
 }
