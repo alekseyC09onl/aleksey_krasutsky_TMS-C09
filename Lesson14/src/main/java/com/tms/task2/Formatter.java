@@ -1,5 +1,8 @@
 package com.tms.task2;
 
 public interface Formatter {
-    void chooseSentencesFromFile(String pathToFile);
+    String getTextFromFile(String pathToFile);
+
+    void writeSortedSentencesToFile(String text, String resultFile);
+
 }
