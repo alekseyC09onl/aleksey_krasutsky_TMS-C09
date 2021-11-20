@@ -1,20 +1,11 @@
 package com.tms.task1;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
+import static com.tms.task1.Constants.INPUT_FILE;
+import static com.tms.task1.Constants.OUTPUT_FILE;
 
 public class Main {
     public static void main(String[] args) {
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("Lesson14/src/main/java/hw1/input.txt"))) {
-            String i;
-            while ((i = bufferedReader.readLine()) != null) {
-                if (Helpers.checkPalindroms(i)) {
-                    System.out.println(i);
-                }
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        Checkable check = new Check();
+        check.checkPalindromsInFile(INPUT_FILE, OUTPUT_FILE);
     }
 }
