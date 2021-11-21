@@ -16,6 +16,7 @@ public class Helpers {
         return true;
     }
 
+
     public static String getTextFromFile(String pathToFile) {
         StringBuilder stringBuilder = new StringBuilder();
         try (FileReader fileReader = new FileReader(pathToFile, StandardCharsets.UTF_8)) {

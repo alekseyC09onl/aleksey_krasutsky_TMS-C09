@@ -5,6 +5,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
+
 public class Check implements Checkable {
     private int countIncorrectSentences;
     private StringBuilder stringBuilder;

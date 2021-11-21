@@ -4,4 +4,5 @@ public interface Checkable {
 
     void checkPalindromsInFile(String checkedFile, String resultFile);
 
+
 }

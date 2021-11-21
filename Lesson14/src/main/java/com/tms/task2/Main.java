@@ -23,6 +23,7 @@ public class Main {
         writeResult(result);
     }
 
+
     private static void writeResult(StringBuilder result) {
         try (BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(OUTPUT_FILE, true))) {
             bufferedWriter.write(result.toString());
