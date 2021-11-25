@@ -1,3 +1,5 @@
+package com.tms.task1v2;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -12,8 +14,8 @@ public class Product {
 
     @Override
     public String toString() {
-        return name + " - " +
+        return name + ": " +
                 "id = " + id +
-                ", price = " + price;
+                ", price = " + price + ".";
     }
 }
