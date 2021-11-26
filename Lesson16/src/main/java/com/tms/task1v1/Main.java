@@ -4,7 +4,7 @@ public class Main {
     public static void main(String[] args) {
         Product cucumber = new Product(15, "огурец", 10);
         Product tomato = new Product(16, "помидор", 5);
-        Product carrot = new Product(16, "морковь", 6);
+        Product carrot = new Product(13, "морковь", 6);
         Product apple = new Product(27, "яблоко", 7);
         Shop shop = new Shop();
         try {
@@ -17,7 +17,13 @@ public class Main {
         }
         System.out.println(shop.getProductNameList());
         System.out.println(shop.getProductList());
-        shop.sortList();
+        shop.printSortListBackOrder();
+        System.out.println();
+        shop.printSortListMaxToMinPrice();
+        System.out.println();
+        shop.removeProduct(13);
+        System.out.println(shop.getProductList());
+        shop.changeParametersProduct(apple);
         System.out.println(shop.getProductList());
     }
 }
