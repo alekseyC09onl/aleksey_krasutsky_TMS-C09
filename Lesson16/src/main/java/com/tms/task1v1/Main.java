@@ -23,7 +23,7 @@ public class Main {
         System.out.println();
         shop.removeProduct(13);
         System.out.println(shop.getProductList());
-        shop.changeParametersProduct(apple);
+        shop.changeParametersProduct(27);
         System.out.println(shop.getProductList());
     }
 }

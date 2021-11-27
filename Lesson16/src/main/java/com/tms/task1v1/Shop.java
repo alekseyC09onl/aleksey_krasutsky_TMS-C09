@@ -6,6 +6,8 @@ import lombok.Setter;
 
 import java.util.*;
 
+import static com.tms.task1v1.Helpers.consoleInt;
+
 @Getter
 @Setter
 public class Shop {
@@ -57,25 +59,28 @@ public class Shop {
             if (product.getId() == id) {
                 productList.remove(product);
                 System.out.println("Удален из списка продуктов: " + product.getName());
+                break;
             }
         }
     }
 
-    public void changeParametersProduct(Product product) {
+    public void changeParametersProduct(int id) {
         System.out.println("Введите:\n1 - поменять название продукта\n2 - поменять цену");
         Scanner console = new Scanner(System.in);
-        int i = console.nextInt();
-        String newNameProduct = console.nextLine();
+        int i = consoleInt(console);
+//        String newNameProduct = console.nextLine();
         for (Product product1 : productList) {
-            if (product.getId() == product1.getId()) {
+            if (id == product1.getId()) {
                 switch (i) {
                     case 1:
                         System.out.println("Введите новое название продукта");
-                        product1.setName(console.nextLine());
+                        product1.setName(console.next());
+                        System.out.println("Продукт переименован");
                         break;
                     case 2:
                         System.out.println("Введите новую цену продукта");
-                        product1.setPrice(console.nextInt());
+                        product1.setPrice(consoleInt(console));
+                        System.out.println("Цена успешно изменена");
                         break;
                     default:
                         System.out.println("Необходимо ввести 1 или 2");
