@@ -11,30 +11,18 @@ import static com.tms.task1v1.Helpers.consoleInt;
 @Getter
 @Setter
 public class Shop {
-    private HashSet<Product> productList;
+    private Set<Product> productList;
     private Product product;
-    private boolean repeatId;
 
     public Shop() {
         productList = new LinkedHashSet<>();
     }
 
-    public void addProductToList(Product product) throws IdException {
-        if (productList.isEmpty()) {
-            productList.add(product);
+    public void addProductToList(Product product) {
+        if (productList.add(product)) {
             System.out.println(product.getName() + " добавлен в список продуктов.");
         } else {
-            for (Product product1 : productList) {
-                if (product.getId() == product1.getId()) {
-                    repeatId = true;
-                }
-            }
-            if (repeatId) {
-                throw new IdException("Невозможно добавить " + product.getName() + "! Продукт с таким id уже существует!");
-            } else {
-                productList.add(product);
-                System.out.println(product.getName() + " добавлен в список продуктов.");
-            }
+            System.out.println("Невозможно добавить " + product.getName() + "! Продукт с таким id уже существует!");
         }
     }
 
@@ -68,7 +56,6 @@ public class Shop {
         System.out.println("Введите:\n1 - поменять название продукта\n2 - поменять цену");
         Scanner console = new Scanner(System.in);
         int i = consoleInt(console);
-//        String newNameProduct = console.nextLine();
         for (Product product1 : productList) {
             if (id == product1.getId()) {
                 switch (i) {
@@ -92,7 +79,7 @@ public class Shop {
     public void printSortListMinToMaxPrice() {
         Comparator<Product> comparatorPrice = new MaxPriceComparator();
         ArrayList<Product> productArrayList = new ArrayList<>(productList);
-        Collections.sort(productArrayList, comparatorPrice);
+        productArrayList.sort(comparatorPrice);
         for (Product product1 : productArrayList) {
             System.out.println(product1);
         }
