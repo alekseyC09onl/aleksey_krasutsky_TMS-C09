@@ -8,22 +8,22 @@ public class Application {
     public void start() {
         boolean flag = false;
         Shop shop = new Shop();
+        Scanner console = new Scanner(System.in);
         while (!flag) {
             System.out.println("Введите\n1 - вывести полный список товаров\n2 - добавить товар\n3 - удалить товар\n4 - редактировать товар\n5 - выход");
-            Scanner console = new Scanner(System.in);
             int i = consoleInt(console);
             switch (i) {
                 case 1:
                     System.out.println("Выберите вариант сортировки\n1 - по цене(возрастание)\n2 - по цене(убывание)\n3 - по добавлению(сначала новые, потом более старые)");
-                    printProductListVersion(shop, console);
+                    printProductListVersions(shop, console);
                     break;
                 case 2:
                     System.out.println("Введите id, наименование и цену добавляемого товара");
-                    try {
-                        shop.addProductToList(new Product(consoleInt(console), console.next(), consoleInt(console)));
-                    } catch (IdException e) {
-                        System.out.println(e.getMessage());
-                    }
+//                    try {
+                    shop.addProductToList(new Product(consoleInt(console), console.next(), consoleInt(console)));
+//                    } catch (IdException e) {
+//                        System.out.println(e.getMessage());
+//                    }
                     break;
                 case 3:
                     System.out.println("Введите id товара для его удаления");
@@ -42,7 +42,7 @@ public class Application {
         }
     }
 
-    private void printProductListVersion(Shop shop, Scanner console) {
+    private void printProductListVersions(Shop shop, Scanner console) {
         switch (consoleInt(console)) {
             case 1:
                 shop.printSortListMinToMaxPrice();
