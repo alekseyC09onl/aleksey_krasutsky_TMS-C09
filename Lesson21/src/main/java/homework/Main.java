@@ -1,28 +1,19 @@
 package homework;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-
 public class Main {
     public static void main(String[] args) {
-        Connection connection = Helpers.getConnection();
-        PreparedStatement preparedStatement = null;
-        ResultSet resultSet = null;
-        try {
-            preparedStatement = connection.prepareStatement("SELECT * FROM student");
-            resultSet = preparedStatement.executeQuery();
-            String name = "";
-            int rating = 0;
-            while (resultSet.next()) {
-                name = resultSet.getString(2);
-                rating = resultSet.getInt(3);
-                System.out.println(name + " rating - " + rating);
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        Service service = new Service();
+        service.showBestStudent();
+        service.showWorstStudent();
+        service.showInfoStudentsE01Group();
+        service.showInfoStudentsE02Group();
+        service.showInfoStudentsE03Group();
+        service.showStudentsE01GroupWithRatingAboveAverage();
+        service.showStudentsE02GroupWithRatingAboveAverage();
+        service.showStudentsE03GroupWithRatingAboveAverage();
+        service.showMorePopularCourse();
+        service.showMorePopularMark();
     }
 }
+
 

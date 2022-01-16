@@ -29,6 +29,7 @@ public class Helpers {
         } catch (IOException | SQLException e) {
             e.printStackTrace();
         }
+
         return connection;
     }
 }
