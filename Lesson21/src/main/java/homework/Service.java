@@ -222,6 +222,135 @@ public class Service {
         }
     }
 
+    public void showStudentsBasicCourseWithRatingAboveAverage() {
+        Connection connection = Helpers.getConnection();
+        System.out.println("Students java basic course with rating above average: ");
+        try {
+            preparedStatement = connection.prepareStatement("select student.name from student, studentscources\n" +
+                    "where student.student_ID = studentscources.student_ID\n" +
+                    "AND studentscources.course_ID = 1\n" +
+                    "AND student.rating > (SELECT avg(rating) FROM student, studentscources\n" +
+                    "                      WHERE student.student_ID = studentscources.student_ID\n" +
+                    "                      AND studentscources.course_ID = 1);");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("- " + resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void showStudentsProCourseWithRatingAboveAverage() {
+        Connection connection = Helpers.getConnection();
+        System.out.println("Students java pro course with rating above average: ");
+        try {
+            preparedStatement = connection.prepareStatement("select student.name from student, studentscources\n" +
+                    "where student.student_ID = studentscources.student_ID\n" +
+                    "AND studentscources.course_ID = 2\n" +
+                    "AND student.rating > (SELECT avg(rating) FROM student, studentscources\n" +
+                    "                      WHERE student.student_ID = studentscources.student_ID\n" +
+                    "                      AND studentscources.course_ID = 2);");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("- " + resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void showStudentsVisitedOnlyOneCourse() {
+        Connection connection = Helpers.getConnection();
+        try {
+            preparedStatement = connection.prepareStatement("select student.name from student, studentscources WHERE student.student_ID = studentscources.student_ID AND studentscources.course_ID = 1;");
+            resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                System.out.println("- " + resultSet.getString(1));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public String[] getStudentsVisitedBasicCourse() {
+        Connection connection = Helpers.getConnection();
+        int count = 0;
+        try {
+            preparedStatement = connection.prepareStatement("select count(student.name) from student, studentscources WHERE student.student_ID = studentscources.student_ID AND studentscources.course_ID = 1;");
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+            String[] studentsBasic = new String[count];
+            preparedStatement2 = connection.prepareStatement("select student.name from student, studentscources WHERE student.student_ID = studentscources.student_ID AND studentscources.course_ID = 1;");
+            resultSet = preparedStatement2.executeQuery();
+            for (int i = 0; i < studentsBasic.length; i++) {
+                if (resultSet.next()) {
+                    studentsBasic[i] = resultSet.getString(1);
+                }
+            }
+            return studentsBasic;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
+    public String[] getStudentsVisitedProCourse() {
+        Connection connection = Helpers.getConnection();
+        int count = 0;
+        try {
+            preparedStatement = connection.prepareStatement("select count(student.name) from student, studentscources WHERE student.student_ID = studentscources.student_ID AND studentscources.course_ID = 2;");
+            resultSet = preparedStatement.executeQuery();
+            if (resultSet.next()) {
+                count = resultSet.getInt(1);
+            }
+            String[] studentsBasic = new String[count];
+            preparedStatement2 = connection.prepareStatement("select student.name from student, studentscources WHERE student.student_ID = studentscources.student_ID AND studentscources.course_ID = 2;");
+            resultSet = preparedStatement2.executeQuery();
+            for (int i = 0; i < studentsBasic.length; i++) {
+                if (resultSet.next()) {
+                    studentsBasic[i] = resultSet.getString(1);
+                }
+            }
+            return studentsBasic;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                connection.close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+        return null;
+    }
+
     public void showMorePopularCourse() {
         Connection connection = Helpers.getConnection();
         int countCourseBasik = 0;
