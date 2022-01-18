@@ -351,6 +351,10 @@ public class Service {
         return null;
     }
 
+    public void showStudentsWithUniqueCourse() {
+        Helpers.printUniqueValues(getStudentsVisitedBasicCourse(), getStudentsVisitedProCourse());
+    }
+
     public void showMorePopularCourse() {
         Connection connection = Helpers.getConnection();
         int countCourseBasik = 0;
