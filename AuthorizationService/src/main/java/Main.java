@@ -3,6 +3,10 @@ public class Main {
         Service service = new Service();
 //        service.registrationUser("alex2", "46461", "Alex1", 251);
 //        service.loginToAccount("alex", "12345678");
-        service.changeAccountPassword("alex", "11231234qwe");
+//        service.changeAccountPassword("alex", "11231234qwe");
+//        service.changeAccountName("alex", "Aleksey");
+//        service.changeUserAge("alex", 25);
+//        System.out.println(service.validatePassword("aleX1234"));
+        service.changeAccountPassword("alex", "A1l1e1x1");
     }
 }
