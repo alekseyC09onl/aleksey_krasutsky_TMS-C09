@@ -34,15 +34,6 @@ select max(posts_date) from posts where posts.user_id = 4;
 select min(posts_date) from posts where posts.user_id = 4;
 select datediff((select max(posts_date) from posts where posts.user_id = 4),(select min(posts_date) from posts where posts.user_id = 4));
 
-
-# alter TABLE users ADD COLUMN maxmindate INT NOT NULL;
-# update users set maxmindate = (select datediff((select max(posts_date) from posts where posts.user_id = 1),(select min(posts_date) from posts where posts.user_id = 1))) where id = 1;
-# update users set maxmindate = (select datediff((select max(posts_date) from posts where posts.user_id = 2),(select min(posts_date) from posts where posts.user_id = 2))) where id = 2;
-# update users set maxmindate = (select datediff((select max(posts_date) from posts where posts.user_id = 3),(select min(posts_date) from posts where posts.user_id = 3))) where id = 3;
-# update users set maxmindate = (select datediff((select max(posts_date) from posts where posts.user_id = 4),(select min(posts_date) from posts where posts.user_id = 4))) where id = 4;
-#
-# select login, maxmindate from users order by maxmindate DESC;
-
 create TABLE user_maxmindate(
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
     user_id INT NOT NULL ,
