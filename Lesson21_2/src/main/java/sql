@@ -1,0 +1,86 @@
+create database IF NOT EXISTS `schema_lessonSQL`;
+use schema_lessonSQL;
+
+create table IF NOT EXISTS users (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    login VARCHAR(45) NOT NULL UNIQUE,
+    email VARCHAR(45) NOT NULL UNIQUE
+);
+
+create table IF NOT EXISTS posts (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    posts_date TIMESTAMP(6) NOT NULL,
+    user_id INT NOT NULL,
+    FOREIGN KEY (user_id) references users(id)
+);
+
+insert into users (login, email) VALUES ('alex5234655', 'alex52343@gmail.com');
+insert into users (login, email) VALUES ('bob64811', 'bob413@mail.ru');
+insert into users (login, email) VALUES ('john545ok', 'john4556@yandex.ru');
+insert into users (login, email) VALUES ('ron4do', 'ron1234@inbox.com');
+
+insert into posts (posts_date, user_id) VALUES ('05/12/31 03:12:09', 2);
+insert into posts (posts_date, user_id) VALUES ('10/12/17 03:12:09', 2);
+insert into posts (posts_date, user_id) VALUES ('13/04/23 21:31:10', 3);
+insert into posts (posts_date, user_id) VALUES ('19/10/23 21:31:10', 3);
+insert into posts (posts_date, user_id) VALUES ('19/09/19 07:41:33', 1);
+insert into posts (posts_date, user_id) VALUES ('17/08/19 07:41:33', 1);
+insert into posts (posts_date, user_id) VALUES ('22/01/25 11:07:51', 4);
+insert into posts (posts_date, user_id) VALUES ('17/04/12 13:11:01', 4);
+insert into posts (posts_date, user_id) VALUES ('21/01/04 10:47:30', 4);
+insert into posts (posts_date, user_id) VALUES ('16/11/30 21:17:08', 4);
+
+select max(posts_date) from posts where posts.user_id = 4;
+select min(posts_date) from posts where posts.user_id = 4;
+select datediff((select max(posts_date) from posts where posts.user_id = 4),(select min(posts_date) from posts where posts.user_id = 4));
+
+create TABLE user_maxmindate(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY ,
+    user_id INT NOT NULL ,
+    maxmindate INT NOT NULL ,
+    foreign key (user_id) REFERENCES users(id)
+);
+
+insert into user_maxmindate (user_id, maxmindate) VALUES (1, (select datediff((select max(posts_date) from posts where posts.user_id = 1),(select min(posts_date) from posts where posts.user_id = 1))));
+insert into user_maxmindate (user_id, maxmindate) VALUES (2, (select datediff((select max(posts_date) from posts where posts.user_id = 2),(select min(posts_date) from posts where posts.user_id = 2))));
+insert into user_maxmindate (user_id, maxmindate) VALUES (3, (select datediff((select max(posts_date) from posts where posts.user_id = 3),(select min(posts_date) from posts where posts.user_id = 3))));
+insert into user_maxmindate (user_id, maxmindate) VALUES (4, (select datediff((select max(posts_date) from posts where posts.user_id = 4),(select min(posts_date) from posts where posts.user_id = 4))));
+
+select u.login, um.maxmindate from users u join user_maxmindate um on u.id = um.user_id order by maxmindate DESC ;
+
+create table user_registration (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT ,
+    user_id INT NOT NULL ,
+    is_active boolean NOT NULL ,
+    registration_type VARCHAR(45),
+    registration_date timestamp(6),
+    foreign key (user_id) REFERENCES users(id)
+);
+
+insert into user_registration (user_id, is_active, registration_type, registration_date) VALUES (1, true, 'email', '17/05/21 14:04:52');
+insert into user_registration (user_id, is_active, registration_type, registration_date) VALUES (2, false, 'phone', '05/06/07 15:14:02');
+insert into user_registration (user_id, is_active, registration_type, registration_date) VALUES (3, false, 'email', '13/01/02 04:04:52');
+insert into user_registration (user_id, is_active, registration_type, registration_date) VALUES (4, true, 'email', '15/06/01 08:14:00');
+
+select count(id) from user_registration where registration_type = 'email' and is_active = 1 and registration_date > '18/06/01';
+select count(id) from user_registration where registration_type = 'phone' and is_active = 1;
+
+create TABLE user_messages (
+    id INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
+    users_id INT NOT NULL ,
+    message_id INT NOT NULL ,
+    read_time timestamp(6) NOT NULL ,
+    foreign key (users_id) REFERENCES users(id)
+);
+
+
+insert into user_messages (users_id, message_id, read_time) VALUES (1, 5, curdate());
+insert into user_messages (users_id, message_id, read_time) VALUES (1, 2, curdate() - 1);
+insert into user_messages (users_id, message_id, read_time) VALUES (2, 2, curdate() - 5);
+insert into user_messages (users_id, message_id, read_time) VALUES (3, 2, curdate() - 15);
+insert into user_messages (users_id, message_id, read_time) VALUES (3, 7, curdate() - 6);
+insert into user_messages (users_id, message_id, read_time) VALUES (4, 9, curdate() - 25);
+
+select u.email, um.message_id, um.read_time from users u join user_messages um on u.id = um.users_id ;
+
+
